@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Body Fat Estimator</title>
+</head>
+<body>
+    <h2>Body Fat Estimator</h2>
+	
+	<div style="margin-bottom: 20px; font-weight: bold;">
+    Please enter the following information:<br>
+    - Density: Determined from underwater weighing<br>
+    - Height: in cm<br>
+    - Abdomen Circumference: in cm
+</div>
+    <form action="/" method="post">
+        {% for feature in features %}
+            <label>{{ feature }}:</label><br>
+            <input type="number" step="any" name="{{ feature }}" required><br><br>
+        {% endfor %}
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction is not none %}
+        <h3>Predicted Body Fat: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
+
+
